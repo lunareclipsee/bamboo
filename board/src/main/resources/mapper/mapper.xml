@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+
+<!-- 	<resultMap type="com.bamboo.board.model.BoardDto" id="BoardDto"> -->
+<!-- 		<id column="idx" property="idx" /> -->
+<!-- 		<result column="title" property="title" /> -->
+<!-- 		<result column="content" property="content" /> -->
+<!-- 		<result column="password" property="password" /> -->
+<!-- 		<result column="inip" property="inip" /> -->
+<!-- 		<result column="indate" property="indate" javaType="java.util.Date" /> -->
+<!-- 	</resultMap> -->
+	
+	<select id="list" parameterType="map" resultType="map">
+		SELECT *
+		FROM
+		BOARDTABLE
+		WHERE IDX BETWEEN #{start} AND #{end}
+	</select>
+
+	<select id="cnt" parameterType="int" resultType="int">
+		SELECT COUNT(*)
+		FROM BOARDTABLE
+	</select>
+
+	<select id="curPage" parameterType="map" resultType="int">
+		SELECT
+		FLOOR((idx-1) / 5)+1 idx
+		FROM BOARDTABLE
+		WHERE IDX = #{idx}
+	</select>
+
+	<insert id="add" parameterType="com.bamboo.board.model.BoardDto"
+		useGeneratedKeys="true" keyProperty="idx">
+		INSERT INTO BOARDTABLE
+		(TITLE, CONTENT, PASSWORD, INIP, INDATE)
+		VALUES(#{title}, #{content}, #{password}, #{inip}, SYSDATE())
+	</insert>
+
+</mapper>
