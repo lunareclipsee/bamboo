@@ -3,26 +3,17 @@ package com.bamboo.board.model;
 import java.util.Date;
 
 public class BoardDto {
-	
+
 	private int idx;
+	private String name;
 	private String title;
 	private String content;
-	private int password;
+	private String password;
 	private String inip;
 	private Date indate;
-	
+
 	public BoardDto() {
 		super();
-	}
-
-	public BoardDto(int idx, String title, String content, int password, String inip, Date indate) {
-		super();
-		this.idx = idx;
-		this.title = title;
-		this.content = content;
-		this.password = password;
-		this.inip = inip;
-		this.indate = indate;
 	}
 
 	public int getIdx() {
@@ -31,6 +22,14 @@ public class BoardDto {
 
 	public void setIdx(int idx) {
 		this.idx = idx;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getTitle() {
@@ -49,11 +48,11 @@ public class BoardDto {
 		this.content = content;
 	}
 
-	public int getPassword() {
+	public String getPassword() {
 		return password;
 	}
 
-	public void setPassword(int password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
@@ -75,8 +74,8 @@ public class BoardDto {
 
 	@Override
 	public String toString() {
-		return "BoardDto [idx=" + idx + ", title=" + title + ", content=" + content + ", password=" + password
-				+ ", inip=" + inip + ", indate=" + indate + "]";
+		return "BoardDto [idx=" + idx + ", name=" + name + ", title=" + title + ", content=" + content + ", password="
+				+ password + ", inip=" + inip + ", indate=" + indate + "]";
 	}
 
 }

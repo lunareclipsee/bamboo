@@ -5,17 +5,17 @@ import java.io.Serializable;
 public class Paging implements Serializable{
 
 	// 페이지당 게시물수
-	public static final int PAGE_SCALE = 20;
+	public static final int PAGE_SCALE = 10;
 	
 	// 화면당 페이지 수
-	public static final int BLOCK_SCALE = 20;
+	public static final int BLOCK_SCALE = 10;
 	
 	private int curPage;	// 현재 게시물
 	private int beginPage;	// 첫 게시물
 	private int endPage;	// 마지막 게시물
 	private int prevPage;	// 이전 게시물
 	private int nextPage;	// 다음 게시물
-	private int totPage;	//	전체 게시물
+	private int totPage;	// 전체 게시물
 	private int totBlock;	// 전체 페이지 갯수
 	private int curBlock;	
 	private int prevBlock;
@@ -188,6 +188,15 @@ public class Paging implements Serializable{
 	public void setEndPage(int endPage) {
 		this.endPage = endPage;
 	}
+
+	@Override
+	public String toString() {
+		return "Paging [curPage=" + curPage + ", beginPage=" + beginPage + ", endPage=" + endPage + ", prevPage="
+				+ prevPage + ", nextPage=" + nextPage + ", totPage=" + totPage + ", totBlock=" + totBlock
+				+ ", curBlock=" + curBlock + ", prevBlock=" + prevBlock + ", nextBlock=" + nextBlock + ", pageBegin="
+				+ pageBegin + ", pageEnd=" + pageEnd + ", blockBegin=" + blockBegin + ", blockEnd=" + blockEnd + "]";
+	}
+	
 	
 	
 }

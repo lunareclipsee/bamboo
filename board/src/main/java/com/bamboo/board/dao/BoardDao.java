@@ -7,15 +7,6 @@ import com.bamboo.board.model.BoardDto;
 
 public interface BoardDao {
 
-	// ---*카운트(Map)
-	public int cnt(Map<String, Object> param);
-
-	// ---*리스트
-	public List<Map<String, Object>> list(Map<String, Object> param);
-
-	// ---*저장
-	public int in(Map<String, Object> param);
-
 	public int postCnt(int idx);
 
 	public int postCurPage(int idx);
@@ -23,5 +14,11 @@ public interface BoardDao {
 	public List<BoardDto> postList(int idx, int start, int end);
 
 	public int postAdd(BoardDto boardDto);
+
+	public BoardDto postSelect(int idx);
+
+	public int postRevise(BoardDto boardDto);
+
+	public int postDelete(BoardDto boardDto);
 
 }
